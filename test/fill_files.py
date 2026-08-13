@@ -13,5 +13,8 @@ for filepath in current_dir.iterdir():
 
 	if filepath.is_file():
 		content = filepath.read_text(encoding='utf-8')
-		print(f' Content: {content}')
+		if not len(content):
+			filepath.write_text(f"Hi! My name is {filepath.name}")
+		print(f'{filepath.name} now has available content!')
+
 
